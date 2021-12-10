@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{
+			 background: linear-gradient(to bottom, #7927b2, #fb3182);
+			 background-repeat: no-repeat;
+			 display: flex;
+			 justify-content: center;
+			 align-items: center;
+			 height: 100vh;
+			}
+		.container{
+			background: white;
+			border-radius: 10px;
+			padding: 0 30px 20px;
+		}
+		.header{
+			border-bottom: 1px solid grey;
+			font-size: 24px;
+			font-weight: 700;
+			text-align: center;
+			margin: 0;
+			padding: 10px 0;
+		}
+		input{
+			width: 80px;
+		}
+		.result{
+			background: whitesmoke;
+			border: 1px solid;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
+		.main-container{
+			padding: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p class="header">Tính ngày trong tháng</p>
+		<div class="main">
+			<div class="main-container">
+			<input type="number" name="thang" id="thang" min="1" max="12" placeholder="Tháng">
+			/
+			<input type="number" name="nam" id="nam" min="1" placeholder="Năm">
+			<button onclick="tinh_ngay()">Tính số ngày</button>
+			</div>
+			<div class="result">
+			<p id="ket_qua">Kết quả</p>
+			</div>
+		</div>		
+	</div>	
+	<script type="text/javascript">
+		function tinh_ngay(){
+			let thang = parseInt (document.getElementById('thang').value);
+			let nam = parseInt (document.getElementById('nam').value);
+			let ngay;
+		switch(thang){
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				ngay = 31;
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				ngay = 30;
+				break;
+			case 2:
+				if(nam % 400 == 0 || (nam%4 == 0 && nam%100 !=0)){
+					ngay = 29;
+				} else {
+					ngay = 28;
+				}
+				break;
+		}
+		document.getElementById('ket_qua').innerHTML = `Tháng ${thang} / Năm ${nam} có ${(ngay)} ngày`;
+		}
+	</script>	
+</body>
+</html>
