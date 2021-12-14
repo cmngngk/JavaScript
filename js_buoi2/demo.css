@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+   }
+   
+   html{
+       width: 100vw;
+       height: 100vh;
+   }
+   
+   /* CSS which you need for blurred box */
+   body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    background-image:url(https://images.unsplash.com/photo-1627482476786-9e8ad319946b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80);
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica;
+    letter-spacing: 0.02em;
+     font-weight: 400;
+    -webkit-font-smoothing: antialiased; 
+   }
+   
+
+   .container{
+     position: relative;
+     width: 250px;
+     height: 200px;
+     left: calc(50% - 125px);
+     background: inherit;
+     border-radius: 2px;
+     overflow: hidden;
+     color: white;
+     top: 120px;
+   } 
+   .container:after{
+    content: '';
+    width: 500px;
+    height: 200px;
+    background: inherit; 
+    position: absolute;
+    left: -25px;
+    left position
+    right: 0;
+    top: -25px;  
+    top position 
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+    filter: blur(10px);
+   }
+   .main{
+    position: relative;
+    margin-top: 30px;
+    text-align: center;
+    z-index: 1;
+  }
+  .input{
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .button {
+  background-color: inherit;
+  border: 1px solid ;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button:hover{
+    background-color: black;
+    color: white;
+    opacity: 0.9;
+}
+
+
+.ket_qua{
+     position: relative;
+     width: 1000px;
+     height: 350px;
+     left: 250px;
+     background: inherit;
+     border-radius: 2px;
+     overflow: hidden;
+     color: white;
+     top: 120px;
+}
+.ket_qua:after{
+    content: '';
+    width: 1000px;
+    height: 200px;
+    background: inherit; 
+    position: absolute;
+    left: -25px;
+    left position
+    right: 0;
+    top: -25px;  
+    top position 
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+    filter: blur(10px);
+   }

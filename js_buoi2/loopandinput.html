@@ -1,0 +1,119 @@
+<!--Tạo 1 input. Yêu cầu:
+
+In ra số chẵn, số lẻ, thập phân (*In ra số nguyên tố)
+In các số từ 1 tới số đó (*Từ số đó tới 1 nếu là số âm)
+**In ra đã nhập bao nhiêu số
+
+****Ấn phím enter để nhập thay vì ấn nút-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+</head>
+<body>
+	<div class="container">
+		<div class="main">
+			<form> 
+				<input type="number" id="input_so" placeholder="Nhập số" class="input">
+				<br>
+				<button class="button" type="button" id="button" onclick="ktra_chanle(),ktra_songuyento(), indayso(), dem()">Kiểm tra</button>
+			</form>
+		</div>
+	</div>
+	<div class="ket_qua">
+		<div class="main">
+		<div id="ket_qua1"></div>
+		<div id="ket_qua2"></div>
+		<div id="ket_qua3"></div>
+		<div id="ket_qua4"></div>
+	</div>
+	
+	<script type="text/javascript">
+		//Kiểm tra số nguyên tố
+		function ktra_songuyento(){
+			let so = document.getElementById('input_so').value;
+			let flag = true;
+			if (so<2) 
+			{
+				flag = false;
+			} 
+			else
+			{
+				for (i=2; i < so-1; i++)
+				{
+					if (so % i == 0) 
+					{
+						flag = false;
+						break;
+					}
+				}
+			}
+			if (flag == true){
+	            return true;
+	        }
+
+	        else{
+	            return false;
+	        }
+		}
+		//Kiểm tra số chẵn, lẻ, thập phân và in ra thông báo
+		function ktra_chanle(){
+			let so = document.getElementById('input_so').value;
+			if(!so)
+               {
+                   alert("Nhập cho tử tế vào!!!");
+                   return;
+               }
+			if (so % 2 == 0) {
+				document.getElementById('ket_qua2').innerHTML = `Số ${so} là số chẵn`
+			} else if (so % 2 == 1 || so % 2 == -1) {
+				document.getElementById('ket_qua2').innerHTML =`Số ${so} là số lẻ`
+			} else{
+				document.getElementById('ket_qua2').innerHTML = `Số ${so} là số thập phân`
+			} 
+			if(!ktra_songuyento(so))
+               {
+                   ket_qua1.innerHTML = `Số ${so} không là số nguyên tố.`;
+               }
+               else
+               {
+                    ket_qua1.innerHTML = `Số ${so} là số nguyên tố.`; 
+               }
+			
+		}
+		//in ra dãy số 
+		function indayso(){
+			let so = document.getElementById('input_so').value;
+			let i;
+			if(so>0){
+				for(i=1; i<=so; i++)
+					document.getElementById('ket_qua3').innerHTML += ` ${i}`;
+			} else if(so<0){
+				for(i=so; i<=-1; i++)
+					ket_qua3.innerHTML.innerHTML += ` ${i}`;
+			}
+		}
+		//đếm xem đã nhập bao lần
+		let count = 0;
+		let ket_qua4 = document.getElementById('ket_qua4');
+		function dem(){
+			if (so = 'so') {
+				count++;
+				ket_qua4.innerHTML += `Đã nhập: ${count} lần.`;
+			}
+		}
+		//thay submit bằng nút enter
+		 document.addEventListener('keypress', event =>{
+                if(event.keyCode === 13 || event.which === 13)
+                {
+                    document.getElementById('button').click();
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+	</script>
+</body>
+</html>
